@@ -18,6 +18,43 @@ db.categories.insertMany([
     }
 ])
 
+db.playlist.insertMany([
+  {
+    title: "EnglishSection1",
+    playlist: [
+     {
+       title: "vocabulary builder 1",
+       path: "./homeserver/english/section1/1.flv"
+     },
+     {
+       title: "vocabulary builder 2",
+       path: "./homeserver/english/section1/2.flv"
+     },
+     {
+       title: "vocabulary builder 3",
+       path: "./homeserver/english/section1/3.flv"
+     }
+    ]
+  },
+  {
+    title: "EnglishSection2",
+    playlist:[
+  {
+    title: "Sect 2 vocabulary builder 1",
+    path: "./homeserver/english/section2/1.flv"
+  },
+  {
+    title: "Sect 2 vocabulary builder 2",
+    path: "./homeserver/english/section2/2.flv"
+  },
+  {
+    title: "Sect 2 vocabulary builder 3",
+    path: "./homeserver/english/section2/3.flv"
+  }
+    ]
+  }
+])
+
 db.EnglishSection1.insertMany([
   {
     title: "vocabulary builder 1",
@@ -30,7 +67,6 @@ db.EnglishSection1.insertMany([
   {
     title: "vocabulary builder 3",
     path: "./homeserver/english/section1/3.flv"
-
   }
 ])
 db.EnglishSection2.insertMany([
@@ -45,6 +81,5 @@ db.EnglishSection2.insertMany([
   {
     title: "Sect 2 vocabulary builder 3",
     path: "./homeserver/english/section2/3.flv"
-
   }
 ])
