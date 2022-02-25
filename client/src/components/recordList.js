@@ -26,7 +26,7 @@ export default function RecordList() {
  // This method fetches the records from the database.
  useEffect(() => {
    async function getRecords() {
-     const response = await fetch(`http://192.168.124.12:5000/record/`);
+     const response = await fetch(`http://localhost:5000/record/`);
  
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;
@@ -45,7 +45,7 @@ export default function RecordList() {
  
  // This method will delete a record
  async function deleteRecord(id) {
-   await fetch(`http://192.168.124.12:5000/${id}`, {
+   await fetch(`http://localhost:5000/${id}`, {
      method: "DELETE"
    });
  
@@ -70,7 +70,7 @@ export default function RecordList() {
  return (
    <div>
      <div id="video">
-         <ReactFlvPlayer
+         {/* <ReactFlvPlayer
                 url={"homeserver/neilgaiman/P1._01_Introduction.flv"}
                 isMuted
                 handleError={(err) => {
@@ -86,7 +86,7 @@ export default function RecordList() {
                     console.log('other error');
                 }
                 }}
-            />
+            /> */}
      </div>
      <h3>Record List</h3>
      <table className="table table-striped" style={{ marginTop: 20 }}>

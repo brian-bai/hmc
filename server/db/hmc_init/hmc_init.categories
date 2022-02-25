@@ -1,0 +1,50 @@
+use hmc
+
+db.categories.insertMany([
+   {
+      title: "English",
+      dirs: ["section1", "section2","section3", "section4", "section5", "section6"],
+      type: "videolist"
+    },
+    {
+      title: "Writer",
+      dirs: ["neilman", "jcott"],
+      type: "videolist"
+    },
+    {
+        title: "Developer",
+        dirs: ["rust", "web3", "cs", "mern"],
+        type: "videolist"
+    }
+])
+
+db.EnglishSection1.insertMany([
+  {
+    title: "vocabulary builder 1",
+    path: "./homeserver/english/section1/1.flv"
+  },
+  {
+    title: "vocabulary builder 2",
+    path: "./homeserver/english/section1/2.flv"
+  },
+  {
+    title: "vocabulary builder 3",
+    path: "./homeserver/english/section1/3.flv"
+
+  }
+])
+db.EnglishSection2.insertMany([
+  {
+    title: "Sect 2 vocabulary builder 1",
+    path: "./homeserver/english/section2/1.flv"
+  },
+  {
+    title: "Sect 2 vocabulary builder 2",
+    path: "./homeserver/english/section2/2.flv"
+  },
+  {
+    title: "Sect 2 vocabulary builder 3",
+    path: "./homeserver/english/section2/3.flv"
+
+  }
+])
