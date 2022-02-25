@@ -6,16 +6,15 @@ import "bootstrap/dist/css/bootstrap.css";
 import { DropdownButton } from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
 import ReactDOM  from "react-dom";
-
+import {ReactFlvPlayer} from "flv-player-react";
 // We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
 
 // Here, we display our Navbar
 export default function Navbar() {
  const [categories, setCategories] = useState([]);
- const [cate, setCate] = useState("English");
- const [cateDir, setCateDir] = useState("section1");
- const [playlist, setPlaylist] = useState({});
+ //const [cate, setCate] = useState("English");
+ //const [cateDir, setCateDir] = useState("section1");
 
  
  // This method fetches the categories from the database.
@@ -39,10 +38,9 @@ export default function Navbar() {
  }, [categories.length]);
  
  // This method fetches the playlist from the database.
- useEffect(() => {
-   async function getPlaylist() {
+ async function getPlaylist(clickedcate, clickeddir) {
      console.log("start fetch playlist");
-     const idstr = cate + cateDir.charAt(0).toUpperCase() + cateDir.slice(1);
+     const idstr = clickedcate + clickeddir.charAt(0).toUpperCase() + clickeddir.slice(1);
      console.log(idstr);
      const response = await fetch(`http://localhost:5000/playlist/${idstr}`);
  
@@ -53,13 +51,8 @@ export default function Navbar() {
      }
  
      const plist = await response.json();
-     setPlaylist(plist);
-   }
- 
-   getPlaylist();
- 
-   return;
- }, [cateDir]);
+     return plist;
+ }
 
  function categoryList() {
   return categories.map((category) => {
@@ -72,26 +65,48 @@ export default function Navbar() {
   });
 }
 
-function playClick(path){
-  console.log(path);
+function playClick(play){
+  console.log(play);
+  const element = <ReactFlvPlayer 
+     url={play.path}
+     handleError={(err) => {
+      switch(err) {
+        case 'NetWorkError':
+          console.log('network error');
+          break;
+        case 'MediaError':
+          console.log('MediaError');
+          break;
+        case 'TypeError':
+          console.log('Type error');
+        default:
+          console.log('other error');
+      } 
+     }} 
+   />;
+  const title = <h3>{play.title}</h3>;
+  ReactDOM.render(element, document.getElementById("video"));
+  ReactDOM.render(title, document.getElementById("videotitle"));
+  
 }
-function dirClick(cate, dir) {
-  setCateDir(dir);
-  setCate(cate);
+async function dirClick(cate, dir) {
+ // setCateDir(dir);
+ // setCate(cate);
   console.log(dir);
   const videodir = <h3>Title: {cate} : {dir}</h3>;
   ReactDOM.render(videodir, document.getElementById("videotitle"));
 
-
+  const clickedplaylist = await getPlaylist(cate, dir);
   
-
-  const listP = playlist.playlist.map((play) => {
+  const listP = clickedplaylist.playlist.map((play) => {
     return (<li className="nav-item" key={play.title} onClick={()=>{playClick(play.path);}} >{play.title}</li>);
   }); 
   
   //TODO: update playlist
   const plays = <ul>{listP}</ul>;
   ReactDOM.render(plays, document.getElementById("playlist"));
+
+  playClick(clickedplaylist.playlist[0]);
 
 }
  // This method will map out the records on the table
