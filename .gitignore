@@ -1,0 +1,12 @@
+**/node_modules/
+client/public/homeserver
+.DS_Store
+**/dist/
+**/build/
+**/*.log*
+package-lock.json
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.sln
