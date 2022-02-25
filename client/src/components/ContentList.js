@@ -1,27 +1,4 @@
 import React from "react";
-import {ReactFlvPlayer} from 'flv-player-react'
-import ReactDOM from 'react-dom';
-
-const VideoRecord = (props) => (
- <tr>
-   <td>{props.name}</td>
-   <td>
-     <button className="btn btn-link"
-       onClick={() => {
-         const element = <ReactFlvPlayer 
-            url={props.link}
-         />;
-         ReactDOM.render(element, document.getElementById('video'));
-         const title = <h3>{props.name}</h3>;
-         ReactDOM.render(title, document.getElementById('videotitle'));
-       }}
-     >
-       Play
-     </button>
-   </td>
- </tr>
-);
-
 
 export default function ContentList() {
  
