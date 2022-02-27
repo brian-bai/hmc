@@ -3,7 +3,7 @@ use hmc
 db.categories.insertMany([
    {
       title: "English",
-      dirs: ["section1", "section2","section3", "section4", "section5", "section6"],
+      dirs: ["section3", "section5", "section6"],
       type: "videolist"
     },
     {
@@ -20,66 +20,138 @@ db.categories.insertMany([
 
 db.playlist.insertMany([
   {
-    title: "EnglishSection1",
+    title: "EnglishSection3",
     playlist: [
      {
-       title: "vocabulary builder 1",
-       path: "./homeserver/english/section1/1.flv"
+       title: "Section3 Unit 1",
+       path: "homeserver/englishwords/section3/Unit1.flv"
      },
      {
-       title: "vocabulary builder 2",
-       path: "./homeserver/english/section1/2.flv"
+       title: "Section3 Unit 2",
+       path: "homeserver/englishwords/section3/Unit2.flv"
+     },
+      {
+       title: "Section3 Unit 3",
+       path: "homeserver/englishwords/section3/Unit3.flv"
      },
      {
-       title: "vocabulary builder 3",
-       path: "./homeserver/english/section1/3.flv"
+       title: "Section3 Unit 4",
+       path: "homeserver/englishwords/section3/Unit4.flv"
+     },
+     {
+       title: "Section3 Unit 5",
+       path: "homeserver/englishwords/section3/Unit5.flv"
+     },
+     {
+       title: "Section3 Unit 6",
+       path: "homeserver/englishwords/section3/Unit6.flv"
+     },
+      {
+       title: "Section3 Unit 7",
+       path: "homeserver/englishwords/section3/Unit7.flv"
+     },
+     {
+       title: "Section3 Unit 8",
+       path: "homeserver/englishwords/section3/Unit8.flv"
+     },
+      {
+       title: "Section3 Unit 9",
+       path: "homeserver/englishwords/section3/Unit9.flv"
+     },
+     {
+       title: "Section3 Unit 10",
+       path: "homeserver/englishwords/section3/Unit10.flv"
      }
     ]
   },
-  {
-    title: "EnglishSection2",
-    playlist:[
-  {
-    title: "Sect 2 vocabulary builder 1",
-    path: "./homeserver/english/section2/1.flv"
-  },
-  {
-    title: "Sect 2 vocabulary builder 2",
-    path: "./homeserver/english/section2/2.flv"
-  },
-  {
-    title: "Sect 2 vocabulary builder 3",
-    path: "./homeserver/english/section2/3.flv"
-  }
+   {
+    title: "EnglishSection5",
+    playlist: [
+     {
+       title: "Section5 Unit 1",
+       path: "homeserver/englishwords/section5/Unit1.flv"
+     },
+     {
+       title: "Section5 Unit 2",
+       path: "homeserver/englishwords/section5/Unit2.flv"
+     },
+      {
+       title: "Section5 Unit 3",
+       path: "homeserver/englishwords/section5/Unit3.flv"
+     },
+     {
+       title: "Section5 Unit 4",
+       path: "homeserver/englishwords/section5/Unit4.flv"
+     },
+     {
+       title: "Section5 Unit 5",
+       path: "homeserver/englishwords/section5/Unit5.flv"
+     },
+     {
+       title: "Section5 Unit 6",
+       path: "homeserver/englishwords/section5/Unit6.flv"
+     },
+      {
+       title: "Section5 Unit 7",
+       path: "homeserver/englishwords/section5/Unit7.flv"
+     },
+     {
+       title: "Section5 Unit 8",
+       path: "homeserver/englishwords/section5/Unit8.flv"
+     },
+      {
+       title: "Section5 Unit 9",
+       path: "homeserver/englishwords/section5/Unit9.flv"
+     },
+     {
+       title: "Section5 Unit 10",
+       path: "homeserver/englishwords/section6/Unit10.flv"
+     }
     ]
-  }
-])
-
-db.EnglishSection1.insertMany([
-  {
-    title: "vocabulary builder 1",
-    path: "./homeserver/english/section1/1.flv"
   },
-  {
-    title: "vocabulary builder 2",
-    path: "./homeserver/english/section1/2.flv"
-  },
-  {
-    title: "vocabulary builder 3",
-    path: "./homeserver/english/section1/3.flv"
-  }
-])
-db.EnglishSection2.insertMany([
-  {
-    title: "Sect 2 vocabulary builder 1",
-    path: "./homeserver/english/section2/1.flv"
-  },
-  {
-    title: "Sect 2 vocabulary builder 2",
-    path: "./homeserver/english/section2/2.flv"
-  },
-  {
-    title: "Sect 2 vocabulary builder 3",
-    path: "./homeserver/english/section2/3.flv"
-  }
+    {
+    title: "EnglishSection6",
+    playlist: [
+     {
+       title: "Section6 Unit 1",
+       path: "homeserver/englishwords/section6/Unit1.flv"
+     },
+     {
+       title: "Section6 Unit 2",
+       path: "homeserver/englishwords/section6/Unit2.flv"
+     },
+      {
+       title: "Section6 Unit 3",
+       path: "homeserver/englishwords/section6/Unit3.flv"
+     },
+     {
+       title: "Section6 Unit 4",
+       path: "homeserver/englishwords/section6/Unit4.flv"
+     },
+     {
+       title: "Section6 Unit 5",
+       path: "homeserver/englishwords/section6/Unit5.flv"
+     },
+     {
+       title: "Section6 Unit 6",
+       path: "homeserver/englishwords/section6/Unit6.flv"
+     },
+      {
+       title: "Section6 Unit 7",
+       path: "homeserver/englishwords/section6/Unit7.flv"
+     },
+     {
+       title: "Section6 Unit 8",
+       path: "homeserver/englishwords/section6/Unit8.flv"
+     },
+      {
+       title: "Section6 Unit 9",
+       path: "homeserver/englishwords/section6/Unit9.flv"
+     },
+     {
+       title: "Section6 Unit 10",
+       path: "homeserver/englishwords/section6/Unit10.flv"
+     }
+    ]
+  } 
 ])

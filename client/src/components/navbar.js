@@ -13,7 +13,7 @@ export default function Navbar() {
  // This method fetches the categories from the database.
  useEffect(() => {
    async function getCategories() {
-     const response = await fetch(`http://localhost:5000/category/`);
+     const response = await fetch(`http://192.168.124.12:5000/category/`);
  
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;
@@ -33,7 +33,7 @@ export default function Navbar() {
  async function getPlaylist(clickedcate, clickeddir) {
      const idstr = clickedcate + clickeddir.charAt(0).toUpperCase() + clickeddir.slice(1);
      console.log("getPlaylist:idstr"+idstr);
-     const response = await fetch(`http://localhost:5000/playlist/${idstr}`);
+     const response = await fetch(`http://192.168.124.12:5000/playlist/${idstr}`);
  
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;
@@ -56,30 +56,33 @@ export default function Navbar() {
 
 function playClick(play){
   console.log(play);
-  const element = <ReactFlvPlayer 
-     url={play.path}
-     handleError={(err) => {
-      switch(err) {
-        case 'NetWorkError':
-          console.log('network error');
-          break;
-        case 'MediaError':
-          console.log('MediaError');
-          break;
-        case 'TypeError':
-          console.log('Type error');
-        default:
-          console.log('other error');
-      } 
-     }} 
-   />;
+  const element = 
+   <div>
+      <ReactFlvPlayer 
+        url={play.path}
+        handleError={(err) => {
+          switch(err) {
+            case 'NetWorkError':
+              console.log('network error');
+              break;
+            case 'MediaError':
+              console.log('MediaError');
+              break;
+            case 'TypeError':
+              console.log('Type error');
+            default:
+              console.log('other error');
+          } 
+        }} 
+      />
+   </div>;
   
-  ReactDOM.render(element, document.getElementById("video"));
   ReactDOM.render(
     <h3>{play.title}</h3>, 
     document.getElementById("videotitle")
   );
-  
+  ReactDOM.render(element, document.getElementById("video"));
+
 }
 async function dirClick(cate, dir) {
   console.log("dirClick: " + dir);
@@ -91,7 +94,7 @@ async function dirClick(cate, dir) {
   const clickedplaylist = await getPlaylist(cate, dir);
   
   const listP = clickedplaylist.playlist.map((play, index) => 
-    <li className="nav-item" key={index} onClick={()=>{playClick(play.path);}} >{play.title}</li>
+    <li className="nav-item" key={index} onClick={()=>{playClick(play);}} >{play.title}</li>
   ); 
   
   //TODO: update playlist
@@ -100,7 +103,9 @@ async function dirClick(cate, dir) {
     document.getElementById("playlist")
   );
 
+  console.log("before playlsit 0");
   playClick(clickedplaylist.playlist[0]);
+  console.log("after playlist 0");
 
 }
  // This method will map out the records on the table
