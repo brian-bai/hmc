@@ -4,29 +4,14 @@ export default function ContentList() {
  
  return (
    <div>
-     <div id="videotitle">VideoDir</div>
-     <div id="video">
-       Video
-         {/* <ReactFlvPlayer
-                url={"homeserver/neilgaiman/P1._01_Introduction.flv"}
-                isMuted
-                handleError={(err) => {
-                switch (err) {
-                    case 'NetworkError':
-                    // todo
-                    console.log('network error');
-                    break;
-                    case 'MediaError':
-                    console.log('network error');
-                    break;
-                    default:
-                    console.log('other error');
-                }
-                }}
-            /> */}
+     <div id="videotitle">Welcome to home media center.</div>
+     <div id="video">Video</div>
+     <div class="container">
+       <div class="row">
+         <div class="col-6 col-sm-3" id="directories">Directories</div>
+         <div class="col-6 col-sm-3" id="playlist">PlayList</div>
+       </div>
      </div>
-     <div id="directories">Directories</div>
-     <div id="playlist">PlayList</div>
    </div>
  );
 }
