@@ -84,6 +84,8 @@ function playClick(play){
   );
   ReactDOM.render(element, document.getElementById("video"));
 
+  var myVideo = document.getElementsByTagName('video')[0];
+  myVideo.loop = true;
 }
 async function dirClick(cate, dir) {
   console.log("dirClick: " + dir);

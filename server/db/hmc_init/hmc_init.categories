@@ -18,6 +18,31 @@ db.categories.insertMany([
     }
 ])
 
+
+db.playlist.insertMany([
+  {
+    title: "EnglishSection2"
+    playlist: [
+      {
+       title: "Section2 All in One",
+       path: "homeserver/englishwords/section2/full2.flv"
+      }
+    ]
+  }
+
+db.playlist.updateOne(
+    { "title" : "EnglishSection2" }, // specifies the document to update
+    {
+      $set: {  "playlist" :   [
+      {
+       title: "Section2 All in One",
+       path: "homeserver/englishwords/section2/full2.flv"
+      }
+    ]}
+      
+    }
+)
+
 db.playlist.insertMany([
   {
     title: "EnglishSection3",
